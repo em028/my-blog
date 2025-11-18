@@ -1,0 +1,20 @@
+/* src/Header.css */
+.site-header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+}
+.site-title {
+  margin: 0;
+  font-size: 2rem;
+}
+.site-header nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+.site-header nav a:hover {
+  text-decoration: underline;
+}
