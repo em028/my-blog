@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { posts } from '../posts'; // ★ データをインポート
+import { posts } from '../posts.jsx'; // ★ データをインポート
 
 function Home() {
   return (

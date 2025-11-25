@@ -1,83 +1,116 @@
 /* src/App.css */
 
-/* * 1. 基本的なリセットと、ボックスサイズの計算方法を統一
- */
-*, *::before, *::after {
-  /* box-sizing: border-box; */
-  /* paddingを含めて幅を計算する（超重要） */
-  width: 100%;
-  margin: 0;
-  padding: 0;
+/* src/App.css (追記・修正) */
+/* src/App.css (修正例) */
+
+/* 1. 全体の背景を淡いグリーンに */
+body {
+  /* 薄いミントグリーン系の色 */
+  background-color: #f0fff4; 
+  color: #333;
+  line-height: 1.7;
 }
 
-/* * 2. 画像などがコンテナからはみ出ないようにする
- */
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
+/* 3. 記事プレビューの調整 */
+.post-preview {
+  background-color: #ffffff;
+  /* 枠線を薄いグリーン系に */
+  border: 1px solid #e6ffe6; 
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 20px;
+  transition: all 0.2s ease-in-out;
 }
+/* ... (hover設定はそのまま) */
 
-/* * 3. 全体を囲うコンテナ(.app-container)に設定
- * App.jsx で <div className="app-container"> と設定したもの
- */
+/* 2. メインコンテナの背景を白に */
 .app-container {
-  /* PCで見たときの最大幅を 960px に制限 */
-  max-width: 960px;
-  
-  /* スマホなど、画面幅が 960px より狭い場合は、画面幅いっぱい(100%)になる */
-  width: 100%; 
-  
-  /* ブロック要素を中央揃えにするお決まりの書き方 */
-  margin-left: auto;
-  margin-right: auto;
-  
-  /* 画面の左右に最低限の余白（1rem = 約16px）を確保 */
-  padding-left: 0rem;
-  padding-right: 0rem;
+  max-width: 1200px;
+  /* 背景を白にして、清潔感を出す */
+  background-color: #ffffff; 
+  /* 外側に影をつけて、コンテンツを浮き立たせる */
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08); 
+  /* コンテナの上下にも少し余白を追加 */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  /* 角を丸くする */
+  border-radius: 8px; 
+  /* ... (他の設定はそのまま) */
 }
 
-/* src/App.css に追記 */
+.post-preview:hover {
+  /* ホバー時に少し影を濃くする */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  transform: translateY(-2px);
+}
 
-/* 記事内の見出しのスタイル */
-.post-content h1, 
-.post-content h2, 
+/* src/App.css (見出し部分の修正) */
+
+/* h2にアクセントラインを追加 */
+.post-content h2 {
+  /* 濃いグリーンの下線 */
+  border-bottom: 2px solid #38761d; 
+  padding-bottom: 0.5rem;
+}
+
+/* h3に見出しの左側に縦線を追加 */
 .post-content h3 {
-  /* 行の高さ（見出しの上下の空間） */
-  line-height: 1.3; 
-  /* 見出しの上下の余白 */
-  margin: 3rem 0 1rem; 
-  /* 線の装飾（h2によく使われる） */
-  padding-bottom: 0.3rem; 
-  border-bottom: 1px solid #eee;
+  /* 左側に太めの緑のボーダーライン */
+  border-left: 5px solid #6aa84f; 
+  /* 左側のパディングで文字とラインを離す */
+  padding-left: 10px; 
 }
 
-/* 段落の調整 */
-.post-content p {
-  /* 段落の下にスペースを開ける */
-  margin-bottom: 1.5rem; 
+/* h1はタイトルなので、下線は入れずにシンプルに */
+.post-content h1 {
+  border-bottom: none;
+  font-size: 2.2rem;
+  font-weight: 700;
 }
 
-/* リスト（箇条書き）の調整 */
-.post-content ul,
-.post-content ol {
-  margin: 1.5rem 0 1.5rem 2rem;
-  padding: 0;
+/* src/App.css (追記) */
+
+/* 強調表示用の淡いピンクのスタイル */
+.highlight-pink {
+  /* 背景を非常に淡いピンクに設定 */
+  background-color: #ffe6f2;
+  /* 文字色を読みやすいように濃いめの色にする */
+  color: #333;
+  /* 文字の上下左右に少しパディングを入れて、背景色がしっかり見えるようにする */
+  padding: 0.2em 0.4em;
+  /* 角を少し丸くする */
+  border-radius: 4px;
+  /* 強調されていることが分かりやすいように少し太字にする */
+  font-weight: 600;
 }
 
-/* コードブロック（Markdownの ``` で囲まれた部分）の調整 */
+/* src/App.css (コードブロック部分の修正) */
+
+/* コードブロック全体（<pre>タグ）の調整 */
 .post-content pre {
-  background-color: #272822; /* 黒っぽい背景 */
-  color: #f8f8f2;             /* 白っぽい文字 */
+  /* 背景を真っ黒に近い色に（黒: #000000、またはプログラマーに人気の #272822 など） */
+  background-color: #e0f0ff7; 
+  /* 文字色を白に */
+  color: #272822;             
+  
   padding: 1rem;
   border-radius: 5px;
-  overflow-x: auto; /* 横に長いコードではみ出さないように */
+  overflow-x: auto; 
   font-size: 0.9em;
 }
 
 /* インラインコード（`code` の部分）の調整 */
 .post-content code {
-    background-color: #f0f0f0;
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  background-color: #e0f0f7;
+  color: #272822;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+/* src/App.css (強調文字のデザイン例) */
+.post-content strong {
+  color: #00c;
+  font-weight: 700;
+  padding: 0 2px;
 }

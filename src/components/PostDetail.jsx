@@ -1,39 +1,34 @@
-// src/components/PostDetail.jsx (修正後)
+// src/components/PostDetail.jsx
 
-import React from 'react';
+import React, { useEffect } from 'react'; // ★ useEffectをインポート
 import { useParams } from 'react-router-dom';
-import ReactMarkdown from 'react-markdown'; // ★ 追加
-import remarkGfm from 'remark-gfm';       // ★ 追加
-import { posts } from '../posts'; 
+import hljs from 'highlight.js'; // ★ highlight.js をインポート
+import 'highlight.js/styles/github.css'; // ★ テーマCSSをインポート
+
+import { posts } from '../posts.jsx'; 
 
 function PostDetail() {
   const { id } = useParams(); 
   const post = posts.find(p => p.id === id); 
 
-  if (!post) {
-    return (
-      <main className="main-content">
-        <h2>記事が見つかりませんでした</h2>
-      </main>
-    );
-  }
+  // ★ ライフサイクル処理の追加 ★
+  useEffect(() => {
+    // 記事の内容がDOMに描画された後、ハイライト処理を実行
+    // highlightAll() は、DOM内のすべての <pre><code> 要素を検索します。
+    hljs.highlightAll();
+
+    // クリーンアップ関数は不要ですが、依存配列に id を含めます。
+  }, [id]); // idが変わる（別の記事に遷移する）たびに再実行
+
+  // content はコンポーネントなので、大文字で始めてタグとして呼び出す
+  const ContentComponent = post.content; 
 
   return (
     <main className="main-content">
-      <h1>{post.title}</h1>
-      <p className="post-date">公開日: {post.date}</p>
-      <hr />
-      
-      <div className="post-content">
-        {/* ▼ ここを <ReactMarkdown> に置き換えます ▼ */}
-        <ReactMarkdown 
-          // contentプロパティ(Markdownテキスト)を渡す
-          children={post.content} 
-          // Markdownの拡張機能（テーブル、チェックボックスなど）を有効化
-          remarkPlugins={[remarkGfm]} 
-        />
-        {/* ▲ 置き換えここまで ▲ */}
-      </div>
+        {/* ... */}
+        <div className="post-content">
+            <ContentComponent /> {/* コンポーネントとして呼び出す */}
+        </div>
     </main>
   );
 }
