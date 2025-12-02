@@ -7,7 +7,7 @@ import './Header.css';
 function Header() {
   return (
     <header className="site-header">
-      <h1 className="site-title"><Link to="/">My React Blog</Link></h1>
+      <h1 className="site-title"><Link to="/">Termux奮闘記</Link></h1>
       <nav>
         {/* aタグをLinkコンポーネントに置き換える */}
         <Link to="/">ホーム</Link>
