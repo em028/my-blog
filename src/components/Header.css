@@ -24,8 +24,8 @@
   border-bottom: 1px solid #e1e4e8; 
   padding: 1.2rem 0; 
   display: flex;
+	flex-direction: column;
   justify-content: space-between;
-  align-items: center;
 }
 
 /* 2. ナビゲーションリンクのホバー色をグリーン系に */
@@ -35,4 +35,18 @@
   /* ホバーでグリーンの線を表示 */
   border-bottom: 2px solid #008000; 
 }
-/* ... (他の設定はそのまま) */
+
+.site-header nav {
+	/* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+}
+
+.site-header nav ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	list-style: none;
+}
+
+.site-header nav ul li {
+	margin: 0 20px;
+}
