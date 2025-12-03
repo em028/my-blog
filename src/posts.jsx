@@ -5,6 +5,7 @@ import {Post1Content} from './components/posts/Post1Content.jsx';
 import {Post2Content} from './components/posts/Post2Content.jsx';
 import {Post3Content} from './components/posts/Post3Content.jsx';
 import {Post4Content} from './components/posts/Post4Content.jsx';
+import {Post5Content} from './components/posts/Post5Content.jsx';
 
 const Post0Content = () => (
   <div>
@@ -46,6 +47,13 @@ export const posts = [
 		date: '2025-11-21',
 		excerpt: 'あと少しでReactでの個人ブログのベースが完成。ここまではAIの指導でそこそこいけてます。',
 		content: Post4Content
+	},
+	{
+		id: '5',
+		title: 'TermuxとReactとAIと〜５',
+		date: '2025-11-22',
+		excerpt: 'AIの傀儡と化した私は、ここから地獄をみる羽目に。',
+		content: Post5Content
 	}
 ];
 
